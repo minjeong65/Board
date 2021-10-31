@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class = 'container mt-5 jm'>
+    <h2><b>{{ b.subject }}</b></h2>
+    <div class = "row mt-5">
+        <div class = "col-lg-10">
+            <textarea class = "form-contorl" style = "width: 900px; height: 400px;" disabled>{{ b.content }}</textarea>
+        </div>
+        <div class = "col-lg-2 text-end"> 
+            <img src = "{{ pic }}" class = "rounded-circle" width = "150px">
+            <p>
+                <b>by {{b.writer}}</b>
+            </p>
+        </div>
+    </div>
+    <div class = 'container mt-3 jm text-end'>
+        {% if b.writer == user.username %}
+            <a href = "{% url 'home:delete' b.id %}"><button class = "btn btn-outline-danger">DELETE</button></a>
+            <a href = "{% url 'home:modify' b.id %}"><button class = "btn btn-outline-primary">MODIFY</button></a>
+        {% endif %}
+            <a href = "{% url 'home:home' %}"><button class = "btn btn-outline-primary">HOME</button></a>
+    </div>
+</div>
+{% endblock %}

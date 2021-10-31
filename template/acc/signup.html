@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" enctype = "multipart/form-data"> <!--enctype : 바이너리 파일 보낼 때 : -->
+    {% csrf_token %}
+    <div class="container mt-5 mb-5" style="width: 70%">
+        <h1 class='jm'>SIGNUP</h1>
+        <div class="input-group input-group-lg mt-5">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
+            <input type="text" name="username" class="form-control" placeholder="Username을 입력하세요" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+        <div class="input-group input-group-lg mt-4">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+            <input type="password" name="password" class="form-control" placeholder="Password를 입력하세요" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+        <div class="input-group input-group-lg mt-4">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Comment</span>
+            <textarea class = "form-control" style = "height: 150px" name = "comment"></textarea>
+        </div>
+        <div class="input-group input-group-lg mt-4">
+            <input type="file" name="pic" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+        <div class="mt-4 text-end">
+            <button class="btn btn-outline-primary">CREATE</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

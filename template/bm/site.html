@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div class='container m-5 jm'>
+    <h1>BookMark</h1>
+    <table class="table table-hover m-3">
+        <thead>
+        <tr class = "text-center">
+            <th scope="col">No</th>
+            <th scope="col">Site</th>
+            <th scope="col">URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in site %}
+        <tr class = "text-center">
+            <th scope="row" width = 150>{{ forloop.counter }}</th>
+            <td>{{ i.site_name }}</td>
+            <td><a href = "{{ i.site_url }}" target = "_ blank">{{ i.site_url }}</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

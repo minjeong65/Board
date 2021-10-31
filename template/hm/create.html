@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method="POST" enctype = "multipart/form-data"> <!--enctype : 바이너리 파일 보낼 때 : -->
+        {% csrf_token %}
+        <div class="container mt-5 mb-5 jm" style="width: 70%">
+            <h1 class='jm'>WRITE</h1>
+            <div class="input-group input-group-lg mt-5">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Subject</span>
+                <input type="text" name="subject" class="form-control" placeholder="제목을 입력하세요" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <div class="input-group input-group-lg mt-4">
+                <span class="input-group-text" id="inputGroup-sizing-lg">content</span>
+                <textarea class = "form-control" style = "height: 150px" placeholder="내용을 입력하세요" name = "content"></textarea>
+            </div>
+            <div class="mt-4 text-end">
+                <button class="btn btn-outline-primary">CREATE</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
